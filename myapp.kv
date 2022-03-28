@@ -1,0 +1,309 @@
+HomeWindow:
+<HomeWindow>:
+    MDBoxLayout:
+        orientation:'vertical'
+        MDToolbar:
+            title: 'Real Estate'
+            md_bg_color: [75/255,126/255,107/255,0.8]
+            specific_text_color: [0/255,0/255,0/255,1]
+            elevation: 30
+
+            right_action_items:[["dots-vertical"]]
+            left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
+        Widget:
+    ScrollView:
+        size_hint_y:.87
+
+        MDBoxLayout:
+            height: self.minimum_height
+            orientation: 'vertical'
+            size_hint_y:.87
+            size_hint:None,None
+            spacing:'5dp'
+            padding:'10dp'
+            Button:
+                text:"Login Page"
+                md_bg_color: [75/255,126/255,107/255,0.8]
+                size_hint: 1,1
+                padding: '5dp','10dp'
+                height:self.texture_size[1]
+                on_press:root.manager.current = "Login window"
+            Image:
+                source:'po.jpeg'
+
+                #size: 100,100
+                size_hint:None,None
+                #size_hint: (.89,.99)
+
+            Image:
+                source:'syi.jpeg'
+                text:"Nice home"
+                size_hint_y:None
+                size_hint:None,None
+            Image:
+                source:'syi.jpeg'
+                text:"Nice home"
+                #size_hint_y:None
+                size_hint:None,None
+            Image:
+                source:'syi.jpeg'
+                text:"Nice home"
+                size_hint_y:None
+                size_hint:None,None
+            Image:
+                source:'syi.jpeg'
+                text:"Nice home"
+                size_hint_y:None
+                size_hint:None,None
+            Image:
+                source:'syi.jpeg'
+                text:"Nice home"
+                size_hint_y:None
+                size_hint:None,None
+
+
+
+    MDNavigationDrawer:
+        id: nav_drawer
+        opening_transition:'out_bounce'
+        opening_time:1
+        closing_transition:'in_out_cubic'
+        closing_time:1
+        MDBoxLayout:
+            orientation: 'vertical'
+            spacing:'10dp'
+            padding:'10dp'
+            MDToolbar:
+                title: 'Real Estate'
+            MDLabel:
+                text: 'Items Offered'
+                size_hint_y: None
+                height:self.texture_size[1]
+            ScrollView:
+                MDList:
+                    OneLineIconListItem:
+                        text: 'Rental Houses'
+                        on_release: root.manager.current ="Rentals apartments"
+                        IconLeftWidget:
+                            icon: 'home-outline'
+                    OneLineIconListItem:
+                        text: 'Hotel Rooms'
+                        on_release: root.manager.current ="Hotel rooms"
+                        IconLeftWidget:
+                            icon: 'home-outline'
+                    OneLineIconListItem:
+                        text: 'Apartments'
+                        on_release: root.manager.current ="Rentals apartments"
+                        IconLeftWidget:
+                            icon: 'home-outline'
+                    OneLineIconListItem:
+                        text: 'Homes'
+                        on_press:root.manager.current = "Home views"
+                        IconLeftWidget:
+                            icon: 'home-outline'
+
+            MDRoundFlatButton:
+                text:'Registration'
+                size_hint_x:1
+                radius:[50,]
+                on_release: root.manager.current ="Login window"
+            MDRectangleFlatIconButton:
+                icon:"mail"
+                text:'Email Us'
+                size_hint_x:1
+            MDRectangleFlatIconButton:
+                icon:"share"
+                text:'Share'
+                size_hint_x:1
+            Widget:
+<SignWindow>:
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        spacing:'15dp'
+        padding:'20dp'
+        MDToolbar:
+            title: 'Sign in page'
+
+        MDTextField :
+            hint_text : "username"
+            mode : "rectangle"
+            id:username
+            hint_text:'input username'
+            size_hint_x : None
+            helper_text:'Username cannot be left empty'
+            required:True
+            icon_right : "account"
+            width : 200
+            font_size : 20
+            pos_hint : {"center_x":.5}
+            normal_color : [239/255,243/255,245/255,1]
+            color_active : [1,1,1,1]
+
+        MDTextFieldRound :
+            hint_text : "Enter your Password"
+            password : True
+            size_hint_x : None
+            icon_right : "eye-off"
+            width : 200
+            font_size : 20
+            pos_hint : {"center_x":.5}
+            normal_color : [239/255,243/255,245/255,1]
+            color_active : [1,1,1,1]
+        MDTextFieldRound :
+            hint_text : "Confirm your Password"
+            size_hint_x : None
+            password : True
+            icon_right : "eye-off"
+            width : 200
+            font_size : 20
+            pos_hint : {"center_x":.5}
+            normal_color : [239/255,243/255,245/255,1]
+            color_active : [1,1,1,1]
+        MDTextFieldRound :
+            hint_text : "email"
+            size_hint_x : None
+            icon_right : "email"
+            width : 200
+            font_size : 20
+            pos_hint : {"center_x":.5}
+            normal_color : [35/255,49/255,48/255,1]
+            color_active : [1,1,1,1]
+        MDRectangleFlatButton :
+            text : "SIGN-UP"
+            font_size : 15
+            pos_hint : {"center_x":.5}
+            theme_text_color : "Custom"
+            text_color : [1,2,3,4]
+        Widget:
+    MDBoxLayout:
+        orientation: 'horizontal'
+        spacing:'85dp'
+        padding:'20dp'
+        MDRoundFlatButton:
+            text:'Home'
+            size_hint: None,None
+            #pos_hint : {"center_x":.5}
+            padding: '5dp','10dp'
+            radius:[50,]
+            on_release: root.manager.current ="Home window"
+        MDRoundFlatButton:
+            text:'Login'
+            size_hint: None,None
+            pos_hint : {"center_x":.5}
+            padding: '5dp','30dp'
+            radius:[50,]
+            on_release: root.manager.current ="Login window"
+        Widget:
+<LoginWindow>:
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        spacing:'15dp'
+        padding:'20dp'
+        MDToolbar:
+            title: 'Login page'
+        MDTextFieldRound :
+            hint_text : "email"
+            size_hint_x : None
+            icon_right : "email"
+            required:True
+            width : 200
+            font_size : 20
+            pos_hint : {"center_x":.5}
+            normal_color : [35/255,49/255,48/255,1]
+            color_active : [1,1,1,1]
+        MDTextFieldRound :
+            hint_text : "Enter your Password"
+            password : True
+            size_hint_x : None
+            icon_right : "eye-off"
+            width : 200
+            font_size : 20
+            pos_hint : {"center_x":.5}
+            normal_color : [239/255,243/255,245/255,1]
+            color_active : [1,1,1,1]
+        MDRectangleFlatButton :
+            text : "LOGIN"
+            font_size : 15
+            pos_hint : {"center_x":.5}
+            theme_text_color : "Custom"
+            text_color : [1,2,3,4]
+        Widget:
+    MDBoxLayout:
+        orientation: 'horizontal'
+        spacing:'85dp'
+        padding:'20dp'
+        MDRoundFlatButton:
+            text:'Home'
+            size_hint: None,None
+            #pos_hint : {"center_x":.5}
+            padding: '5dp','10dp'
+            radius:[50,]
+            on_release: root.manager.current ="Home window"
+        MDRoundFlatButton:
+            text:'Sign-up'
+            size_hint: None,None
+            pos_hint : {"center_x":.5}
+            padding: '5dp','30dp'
+            radius:[50,]
+            on_release: root.manager.current ="Sign window"
+        Widget:
+
+<RentalsApartments>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            title:'Rentals and Apartments'
+        Widget:
+        MDRoundFlatButton:
+            text:'Home'
+            size_hint: None,None
+            #pos_hint : {"center_x":.5}
+            padding: '10dp','25dp'
+            radius:[50,]
+            on_release: root.manager.current ="Home window"
+
+<HotelRooms>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            title:'Hotel Rooms'
+        Widget:
+        MDRoundFlatButton:
+            text:'Home'
+            size_hint: None,None
+            pos_hint : {"center_x":.5}
+            padding: '5dp','10dp'
+            radius:[50,]
+            on_release: root.manager.current ="Home window"
+
+<HomeViews>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            title:'View Homes'
+        Widget:
+        MDRoundFlatButton:
+            text:'Home'
+            size_hint: None,None
+            pos_hint : {"center_x":.5}
+            padding: '5dp','10dp'
+            radius:[50,]
+            on_release: root.manager.current ="Home window"
+
+
+
+
+
+
+
+
+
+#Button:
+            #text:"Login Page"
+            #md_bg_color: [75/255,126/255,107/255,0.8]
+            #size_hint: None,None
+            #padding: '5dp','10dp'
+            #height:self.texture_size[1]
+            #on_press:root.manager.current = "Login window"
